@@ -2,4 +2,5 @@ pandas
 numpy
 bs4
 requests
+farm-haystack[inference]
 -e .
