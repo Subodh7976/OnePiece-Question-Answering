@@ -13,16 +13,23 @@ from src.exception import CustomException
 class DataIngestionConfig:
     scraping_url: str = "https://onepiece.fandom.com/wiki/Special:AllPages"
     base_url: str = "https://onepiece.fandom.com"
-    raw_data_path: str = os.path.join('artifacts', 'raw_data')
-    clean_data_path: str = os.path.join('artifacts', 'clean_data')    
     nav_tag: str = "mw-allpages-nav"
     body_tag: str = "mw-allpages-body"
     output_tag: str = "mw-allpages-output"
+    raw_data_path: str 
+    clean_data_path: str     
 
 
 class DataIngestion:
-    def __init__(self):
-        self.ingestion_config = DataIngestionConfig()
+    def __init__(self, raw_data_path: str, clean_data_path: str):
+        '''
+        Initializes the data ingestion class with defined raw and clean data path
+        Params:
+            raw_data_path: str - Path to raw scraped data
+            clean_data_path: str - Path to clean data after scraped
+        '''
+        self.ingestion_config = DataIngestionConfig(raw_data_path=raw_data_path, 
+                                                    clean_data_path=clean_data_path)
         
     def initiate_data_ingestion(self):
         '''

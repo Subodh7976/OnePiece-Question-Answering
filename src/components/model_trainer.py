@@ -11,16 +11,24 @@ from haystack.pipelines import ExtractiveQAPipeline
 
 from src.exception import CustomException
 from src.logger import logging
+from src.utils import save_object
 
 
 @dataclass
 class ModelTrainerConfig:
-    trained_pipe_file_path: str = os.path.join('artifacts', 'trained_pipe')
+    trained_pipe_file_path: str 
     
     
 class ModelTrainer:
-    def __init__(self):
-        self.model_trainer_config = ModelTrainerConfig()
+    def __init__(self, trained_file_path: str):
+        '''
+        Initializes the Model Trainer class with defined path to save model
+        Params:
+            trained_file_path: str - File path to (including filename) where to save trained model
+        Returns:
+            None
+        '''
+        self.model_trainer_config = ModelTrainerConfig(trained_pipe_file_path=trained_file_path)
         
     def initiate_model_trainer(self, data_path: str):
         '''
@@ -52,8 +60,7 @@ class ModelTrainer:
             pipe = ExtractiveQAPipeline(reader, retriever)
             
             logging.info("Saving the QA Pipeline")
-            with open(self.model_trainer_config.trained_pipe_file_path, 'ab') as model:
-                pickle.dump(pipe, model)
+            save_object(pipe, self.model_trainer_config.trained_pipe_file_path)
                 
             logging.info("Completed the Model Training")
             
