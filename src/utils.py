@@ -3,6 +3,7 @@ import os
 import sys 
 
 from src.exception import CustomException
+from src.logger import logging
 
 
 def save_object(object, save_path: str):
@@ -22,6 +23,7 @@ def save_object(object, save_path: str):
             pickle.dump(object, save_file)
         
     except Exception as e:
+        logging.exception(e)
         raise CustomException(e, sys)
     
     
@@ -37,6 +39,7 @@ def load_object(load_path: str):
         with open(load_path, 'rb') as load_file:
             return pickle.load(load_file)
     except Exception as e:
+        logging.exception(e)
         raise CustomException(e, sys)
     
     
@@ -65,4 +68,25 @@ def reformat_prediction(prediction: dict) -> dict:
         
         return formatted_prediction
     except Exception as e:
+        logging.exception(e)
         raise CustomException(e, sys)
+    
+    
+def check_model_exist(save_path: str) -> bool:
+    '''
+    check if the model save file exist or it needs to be trained
+    Params:
+        save_path: str - path where the model supposed to be saved
+    Returns:
+        True if model is saved else False: bool
+    '''
+    
+    try:
+        if os.path.isfile(save_path):
+            return True 
+        else:
+            return False 
+    except Exception as e:
+        logging.exception(e)
+        raise CustomException(e, sys)
+    

@@ -3,4 +3,5 @@ numpy
 bs4
 requests
 farm-haystack[inference]
+flask
 -e .

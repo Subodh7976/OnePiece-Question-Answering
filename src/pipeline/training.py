@@ -43,4 +43,5 @@ class TrainPipeline:
             return model_path
             
         except Exception as e:
+            logging.exception(e)
             raise CustomException(e, sys)
