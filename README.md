@@ -1,6 +1,7 @@
 # OnePiece Question Answering
 
 OnePiece Question Answering is a tool to answer queries related to OnePiece Anime. OnePiece is an anime which consists 1000+ chapters, so it becomes hard to search for a single query you have in mind. With this tool you can ask any query related to the OnePiece anime (works better if it involves major keyword). This project scraped over 12000 articles from [OnePiece Fandom](https://onepiece.fandom.com/wiki/One_Piece_Wiki) which contains details related to every character, chapter and every incidents. 
+
 This project utilizes the Roberta-base model as its base Document Reader to answer query from a context and BM25 as document retriever. The articats folder is not included (because of its big size) and the data craping and model training can take time or you can download articats contents directly from [here](https://drive.google.com/file/d/1x2XBfM-xugPHcDyH8K30yjKJ8BGDZVau/view?usp=drive_link).
 
 ## Getting Started
