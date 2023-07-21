@@ -20,7 +20,7 @@ def get_packages(file_path: str) -> List[str]:
 
 
 setup(
-    name='one-piece-qna',
+    name='onepieceqna',
     version='0.0.1',
     author='Subodh',
     author_email='s.subodh7976@gmail.com',
