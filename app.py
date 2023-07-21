@@ -50,7 +50,8 @@ def train():
         global prediction_pipeline
         prediction_pipeline = PredictPipeline()
 
-        return render_template('train_completed.html', time_taken=total_time)
+        return render_template('train.html', time_taken=total_time, 
+                               completed=True)
 
 
 @app.route('/predict', methods=['GET', 'POST'])
@@ -70,6 +71,7 @@ def predict():
         total_time = time.time() - start_time
 
         return render_template('predict.html', result=result,
+                               completed=True,
                                time_taken=total_time,
                                trained=check_model_exist(
                                    TrainPipelineConfig().model_save_path

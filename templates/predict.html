@@ -1,0 +1,23 @@
+{% if trained == True %}
+    <p>The model is trained. You can start prediction </p>
+    <br>
+    <form action="{{ url_for('predict') }}" method="post">
+        <p>Enter query</p>
+        <input type="text" name="query" id="query" required />
+        <br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if completed == True %}
+        <p> Time taken in prediction {{time_taken}} </p>
+
+        {% for answer in result['answers'] %}
+            <p> Answer: {{ answer['answer'] }} </p>
+            <p> Context: {{ answer['context'] }} </p>
+            <br>
+        {% endfor %}
+    {% endif %}
+
+{% else %}
+    <p>The model is not trained. Train <a href="{{ url_for('train') }}">here</a></p>
+{% endif %}

@@ -1,0 +1,22 @@
+{% if completed == True %}
+
+    <p>Training Completed! Total time takedn <b>{{ time_taken }}</b></p>
+
+{% else %}
+
+    {% if trained == True %}
+        <p> The model is already trained </p>
+    {% else %}
+        <p> The model is not trained </p>
+    {% endif %}
+
+    <form action="{{ url_for('train') }}" method="post">
+        <select name="scrape" placeholder="Scrape the data or not">
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select>
+
+        <input type="submit" value="Start Training" required />
+    </form>
+
+{% endif %}
