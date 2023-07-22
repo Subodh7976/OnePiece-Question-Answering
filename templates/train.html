@@ -4,13 +4,24 @@
 
 {% else %}
 
-    {% if trained == True %}
-        <p> The model is already trained </p>
+    {% if trained_stand == True %}
+        <p> The standard model is already trained </p>
     {% else %}
-        <p> The model is not trained </p>
+        <p> The standard model is not trained </p>
+    {% endif %}\
+
+    {% if trained_gen == True %}
+        <p>The generative model is already trained </p>
+    {% else %}
+        <p>The generative model is not trained </p>
     {% endif %}
 
     <form action="{{ url_for('train') }}" method="post">
+        <select name="model" placeholder="Train the generative model (No will train standard model)">
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select>
+
         <select name="scrape" placeholder="Scrape the data or not">
             <option value="True">Yes</option>
             <option value="False">No</option>

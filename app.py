@@ -35,16 +35,26 @@ def index():
 @app.route('/train', methods=['GET', 'POST'])
 def train():
     if request.method == 'GET':
-        return render_template('train.html', trained=check_model_exist(
+        return render_template('train.html', trained_stand=check_model_exist(
             TrainPipelineConfig().model_save_path
-        ))
+        ), 
+                               trained_gen=check_model_exist(
+                                   TrainPipelineConfig().generative_model_save_path
+                               ))
     else:
         start_time = time.time()
+        gen_model_bool = bool(request.form.get('model'))
         scrape_bool = bool(request.form.get('scrape'))
-        if scrape_bool:
-            os.system('python main.py scrape')
+        if gen_model_bool:
+            if scrape_bool:
+                os.system('python main.py scrape gen')
+            else:
+                os.system('python main.py gen')
         else:
-            os.system('python main.py')
+            if scrape_bool:
+                os.system('python main.py scrape')
+            else:
+                os.system('python main.py')
 
         total_time = time.time() - start_time
         global prediction_pipeline
@@ -58,24 +68,36 @@ def train():
 def predict():
     global prediction_pipeline
     if request.method == 'GET':
-        return render_template('predict.html', trained=check_model_exist(
+        return render_template('predict.html', trained_stand=check_model_exist(
             TrainPipelineConfig().model_save_path
-        ))
+        ), 
+                               trained_gen=check_model_exist(
+                                   TrainPipelineConfig().generative_model_save_path
+                               ))
     else:
         if prediction_pipeline is None:
             prediction_pipeline = PredictPipeline()
         start_time = time.time()
+        model = request.form.get('model')
         query = request.form.get('query')
-        result = prediction_pipeline.predict(query=query)
+        generative = False
+        if model == 'generative':
+            generative = True
+            result = prediction_pipeline.predict_generative(query=query)
+        else:
+            result = prediction_pipeline.predict(query=query)
 
         total_time = time.time() - start_time
 
         return render_template('predict.html', result=result,
                                completed=True,
                                time_taken=total_time,
-                               trained=check_model_exist(
+                               trained_stand=check_model_exist(
                                    TrainPipelineConfig().model_save_path
-                               ))
+                               ), 
+                               trained_gen=check_model_exist(
+                                   TrainPipelineConfig().generative_model_save_path
+                               ), generative=generative)
 
 
 if __name__ == '__main__':

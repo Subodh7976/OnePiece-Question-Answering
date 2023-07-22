@@ -1,23 +1,95 @@
-{% if trained == True %}
-    <p>The model is trained. You can start prediction </p>
+{% if trained_stand == True and trained_gen == True %}
+    <p>Both the model is trained. You can start prediction </p>
     <br>
     <form action="{{ url_for('predict') }}" method="post">
         <p>Enter query</p>
         <input type="text" name="query" id="query" required />
         <br>
+        <br>
+        <select name="model" placeholder="Which model to use">
+            <option value="generative">Generative </option>
+            <option value="standard">Standard </option>
+        </select>
+        <br>
+        <br>
         <input type="submit" value="Predict">
     </form>
 
-    {% if completed == True %}
-        <p> Time taken in prediction {{time_taken}} </p>
+        {% if completed == True %}
+            <p> Time taken in prediction {{time_taken}} </p>
 
-        {% for answer in result['answers'] %}
-            <p> Answer: {{ answer['answer'] }} </p>
-            <p> Context: {{ answer['context'] }} </p>
+            {% if generative == True %}
+                <p> Answer: {{ result }} </p>
+            {% else %}
+                {% for answer in result['answers'] %}
+                    <p> Answer: {{ answer['answer'] }} </p>
+                    <p> Context: {{ answer['context'] }} </p>
+                    <br>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+
+{% elif trained_stand == True %}
+    <p>The standard model is trained. You can start prediction </p>
+    <br>
+    <form action="{{ url_for('predict') }}" method="post">
+        <p>Enter query</p>
+        <input type="text" name="query" id="query" required />
+        <br>
+        <br>
+        <select name="model" placeholder="Which model to use">
+            <option value="generative" disabled>Generative </option>
+            <option value="standard" selected>Standard </option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Predict">
+    </form>
+
+        {% if completed == True %}
+            <p> Time taken in prediction {{time_taken}} </p>
+
+            {% if generative == True %}
+                <p> Answer: {{ result }} </p>
+            {% else %}
+                {% for answer in result['answers'] %}
+                    <p> Answer: {{ answer['answer'] }} </p>
+                    <p> Context: {{ answer['context'] }} </p>
+                    <br>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+
+{% elif trained_gen == True %}
+    <p>The generative model is trained. You can start prediction </p>
+        <br>
+        <form action="{{ url_for('predict') }}" method="post">
+            <p>Enter query</p>
+            <input type="text" name="query" id="query" required />
             <br>
-        {% endfor %}
-    {% endif %}
+            <br>
+            <select name="model" placeholder="Which model to use">
+                <option value="generative" selected>Generative </option>
+                <option value="standard" disabled>Standard </option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="Predict">
+        </form>
 
+        {% if completed == True %}
+            <p> Time taken in prediction {{time_taken}} </p>
+
+            {% if generative == True %}
+                <p> Answer: {{ result }} </p>
+            {% else %}
+                {% for answer in result['answers'] %}
+                    <p> Answer: {{ answer['answer'] }} </p>
+                    <p> Context: {{ answer['context'] }} </p>
+                    <br>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
 {% else %}
     <p>The model is not trained. Train <a href="{{ url_for('train') }}">here</a></p>
 {% endif %}
