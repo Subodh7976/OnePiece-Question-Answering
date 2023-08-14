@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 from src.exception import CustomException
 from src.logger import logging
-from src.utils import load_object, reformat_prediction
+from src.utils import load_object, reformat_prediction, check_model_exist
 
 
 @dataclass
@@ -19,15 +19,12 @@ class PredictPipelineConfig:
 class PredictPipeline:
     def __init__(self) -> None:
         self.predict_pipeline_config = PredictPipelineConfig()
-        self.prediction_model = load_object(self.predict_pipeline_config.saved_model_path)
+        self.prediction_model = None
         self.retriever_params = {"top_k": self.predict_pipeline_config.retriever_top_k}
         self.reader_params = {"top_k": self.predict_pipeline_config.reader_top_k}
-        self.prediction_generative_model = load_object(
-            self.predict_pipeline_config.saved_generative_model_path
-        )
-        self.prediction_generative_tokenizer = load_object(
-            self.predict_pipeline_config.saved_generative_tokenizer_path
-        )
+        self.prediction_generative_model = None
+        self.prediction_generative_tokenizer = None
+        self.allocate_model()
     
     def predict(self, query: str) -> dict:
         '''
@@ -80,3 +77,18 @@ class PredictPipeline:
             logging.exception(e)
             return CustomException(e, sys)
             
+    def allocate_model(self):
+        if check_model_exist(self.predict_pipeline_config.saved_model_path):
+            self.prediction_model = load_object(
+                self.predict_pipeline_config.saved_model_path
+            )
+        
+        if check_model_exist(self.predict_pipeline_config.saved_generative_model_path):
+            self.prediction_generative_model = load_object(
+                self.predict_pipeline_config.saved_generative_model_path
+            )
+            self.prediction_generative_tokenizer = load_object(
+                self.predict_pipeline_config.saved_generative_tokenizer_path
+            )
+        
+        

@@ -15,7 +15,7 @@ class MyFlask(Flask):
         if not self.debug or os.getenv('WERKZEUG_RUN_PATH') == 'true':
             with self.app_context():
                 global prediction_pipeline
-                if check_model_exist(TrainPipelineConfig().model_save_path):
+                if check_model_exist(TrainPipelineConfig().model_save_path) and check_model_exist(TrainPipelineConfig().generative_model_save_path):
                     prediction_pipeline = PredictPipeline()
                 else:
                     prediction_pipeline = None
