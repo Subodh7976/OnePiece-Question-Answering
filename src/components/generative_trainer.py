@@ -131,7 +131,7 @@ class GenerativeModel:
         except Exception as e:
             raise CustomException(e, sys)
         
-    def __get_titles_articles(self, data_path: str) -> tuple(list, list):
+    def __get_titles_articles(self, data_path: str):
         '''
         retrieves the titles and articles from the defined data path, and returns in the form of list
         Params:
@@ -159,7 +159,7 @@ class GenerativeModel:
                     
         return (titles, articles)
         
-    def __generate_passages(self, titles: list[str], articles: list[str]) -> tuple(list[str], list[str]):
+    def __generate_passages(self, titles: list[str], articles: list[str]):
         '''
         generates the passages for the given titles and articles lists
         Params:
