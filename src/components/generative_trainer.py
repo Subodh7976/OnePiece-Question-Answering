@@ -50,7 +50,7 @@ class GenerativeModel:
         )
         self.device = None
         
-    def initiate_generative_trainer(self, data_path: str) -> tuple(str, str):
+    def initiate_generative_trainer(self, data_path: str):
         '''
         Initiates the model training for Generative Model based on RAG model.
         Params:
