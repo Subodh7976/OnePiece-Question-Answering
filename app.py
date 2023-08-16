@@ -43,15 +43,16 @@ def train():
                                ))
     else:
         start_time = time.time()
-        gen_model_bool = bool(request.form.get('model'))
-        scrape_bool = bool(request.form.get('scrape'))
-        if gen_model_bool:
-            if scrape_bool:
+        gen_model_bool = int(request.form.get('model'))
+        scrape_bool = int(request.form.get('scrape'))
+
+        if gen_model_bool==1:
+            if scrape_bool==1:
                 os.system('python main.py scrape gen')
             else:
                 os.system('python main.py gen')
         else:
-            if scrape_bool:
+            if scrape_bool==1:
                 os.system('python main.py scrape')
             else:
                 os.system('python main.py')
