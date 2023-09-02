@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Question Answer Generator</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='./images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/our_crew.css') }}">
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+
+</head>
+
+<body>
+
+
+    <header>
+        <a href="{{ url_for('index') }}" class="logo"
+          ><img
+            src="https://pnghq.com/wp-content/uploads/one-piece-official-logo-98617.png"
+            alt="One Piece Official Logo"
+        /></a>
+  
+        <nav class="navbar">
+          <a  href="{{ url_for('index') }}">Home</a>
+          <a href="{{ url_for('about') }}">About</a>
+          <a href="{{ url_for('contact') }}">Contact</a>
+          <a class="active" href="{{ url_for('review') }}">Review</a>
+        </nav>
+        <div class="icons">
+          <i class="fa fa-bars" id="menu-bars"></i>
+          <i class="fa fa-search" id="search-icon"></i>
+        </div>
+      </header>
+
+
+    <section class="home">
+        <div class="swiper home-slider">
+            <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Straw Hats Captain</span>
+                        <h3>Monkey D. Luffy</h3>
+                        <p>Monkey D. Luffy, also known as "Straw Hat Luffy" and commonly as "Straw Hat", is the founder and captain of the increasingly infamous and powerful Straw Hat Pirates, as well as the most powerful of its top fighters. He desires to find the legendary treasure left behind by the late Gol D. Roger and thereby become the Pirate King, which would help facilitate an unknown dream of his that he has told only to Shanks, his brothers, and crew. He believes that being the Pirate King means having the most freedom in the world.</p>
+                        <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target="_blank" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/luffy_gear_5.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Vice Captain</span>
+                        <h3>Roronoa Zoro</h3>
+                        <p>Roronoa Zoro, also known as "Pirate Hunter" Zoro, is a main combatant of the Straw Hat Pirates, one of their two swordsmen, one of the Senior Officers of the Straw Hat Grand Fleet, and is publicly recognized as the right-hand man of his crew's captain Monkey D. Luffy. Formerly a bounty hunter, he is the second member of Luffy's crew and the first to join it, doing so in the Romance Dawn Arc.</p>
+                        <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target="_blank" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/zoro_crew.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Chef</span>
+                        <h3>Vinsmoke Sanji</h3>
+                        <p>"Black Leg" Sanji, born as Vinsmoke Sanji, is the cook of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the fifth member of the crew and the fourth to join, doing so at the end of the Baratie Arc.</p>
+                        <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target="_blank" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/sanji.png') }}" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Doctor</span>
+                        <h3>Tony Tony Chopper</h3>
+                        <p>Tony Tony Chopper, also known as "Cotton Candy Lover" Chopper, is the doctor of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the sixth member of the crew and the fifth to join, doing so at the end of the Drum Island Arc. He was temporarily forced to join the Foxy Pirates during the Long Ring Long Land Arc, but was quickly returned to Luffy's crew.</p>
+                        <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target="_blank" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/chopper.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Navigator</span>
+                        <h3>Nami</h3>
+                        <p>Cat Burglar" Nami is the navigator of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. She is the third member of the crew and the second to join, doing so during the Orange Town Arc. She is the adoptive sister of Nojiko after the two were orphaned and taken in by Bell-mère.</p>
+                        <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target="_blank" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/nami.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Archeologist</span>
+                        <h3>Robin</h3>
+                        <p>Nico Robin,[17] also known by her epithet "Devil Child" and the "Light of the Revolution", is the archaeologist of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. She is the seventh member of the crew and the sixth to join, doing so at the end of the Arabasta Arc. She temporarily left the crew during the Water 7 Arc but rejoined during the Enies Lobby Arc.</p>
+                        <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target="_blank" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/robin_crew.png') }}" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our SharpShooter</span>
+                        <h3>Usopp</h3>
+                        <p>God" Usopp is the sniper of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the fourth member of the crew and the third to join, doing so at the end of the Syrup Village Arc. Although he left the crew during the Water 7 Arc, he rejoined at the end of the Post-Enies Lobby Arc.</p>
+                        <a href="https://onepiece.fandom.com/wiki/Usopp" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/usopp_crew.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Engineer</span>
+                        <h3>Franky</h3>
+                        <p>"Iron Man" Franky is the shipwright of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the crew's eighth member and the seventh to join, doing so at the end of the Post-Enies Lobby Arc. Born "Cutty Flam", he chose to go by his nickname of "Franky" until eventually permanently discarding his true name per the request of Iceburg to hide his identity.</p>
+                        <a href="https://onepiece.fandom.com/wiki/Franky" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/franky.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Muscician</span>
+                        <h3>Brook</h3>
+                        <p>"Soul King" Brook is the musician of the Straw Hat Pirates, one of their two swordsmen, and one of the Senior Officers of the Straw Hat Grand Fleet. He is the ninth member of the crew and the eighth to join, doing so at the end of the Thriller Bark Arc.</p>
+                        <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target="_blank" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/brook.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Helsman</span>
+                        <h3>Jinbe</h3>
+                        <p>"Knight of the Sea" Jinbe is the helmsman of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the tenth member of the crew and the ninth to join, doing so during the Wano Country Arc.</p>
+                        <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target="_blank" class="btn">Explore More</a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='./images/jinbe.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination">
+
+            </div>
+        </div>
+    </section>
+    <audio autoplay loop volume="0.6">
+        <source src="{{ url_for('static', filename='./audio/bgm.mp3') }}" type="audio/mpeg" />
+      </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+
+var swiper = new Swiper(".home-slider", {
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 3500,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  loop: true,
+});
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Question Answer Generator</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='./images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/about_us.css') }}">
+    <script src="https://kit.fontawesome.com/0c8a4cf4ca.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="logo"><img src="https://pnghq.com/wp-content/uploads/one-piece-official-logo-98617.png" alt="One Piece Official Logo"></a>
+
+        <nav class="navbar">
+            <a  href="{{ url_for('index') }}">Home</a>
+            <a class="active" href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('review') }}">Review</a>
+        </nav>
+        <div class="icons">
+            <i class="fa fa-bars" id="menu-bars"></i>
+        </div>
+    </header>
+    <div class="container">
+        <div class="heading">
+            <h2>Meet Our Team</h2>
+            <p>Creative Team</p>
+        </div>
+
+        <div class="main-box inner flex">
+            <div class="team-wrap">
+                <div class="team-member text-center">
+                    <div class="team-img">
+                        <img src="{{ url_for('static', filename='./images/gaurav.jpg') }}" alt="">
+                        <div class="overlay">
+                            <div class="team-details text-center">
+                                <p>
+                                    I am a Full Stack Developer and UI/UX Designer.
+                                </p>
+                                <div class="socials mt-20">
+                                    <a href="#"><span class="fa fa-facebook"></span></a>
+                                    <a href="#"><span class="fa fa-twitter"></span></a>
+                                    <a href="#"><span class="fa-brands fa-github"></span></a>
+                                    <a href="#"><span class="fa-solid fa-envelope"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="team-title">Gaurav Yadav</h6>
+                    <span class="span">Designer</span>
+                </div>
+            </div>
+
+            <!-- end team memeber -->
+            <div class="team-wrap">
+                <div class="team-member text-center">
+                    <div class="team-img">
+                        <img src="https://codespectsolution.com/static/media/avatar4.3bc9e86b0195ca17b366.png" alt="">
+                        <div class="overlay">
+                            <div class="team-details text-center">
+                                <p>
+                                   I am a Data Analyst and machine learning enthusiast.
+                                </p>
+                                <div class="socials mt-20">
+                                    <a href="#"><span class="fa fa-facebook"></span></a>
+                                    <a href="#"><span class="fa fa-twitter"></span></a>
+                                    <a href="#"><span class="fa-brands fa-github"></span></a>
+                                    <a href="#"><span class="fa-solid fa-envelope"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="team-title">Tushaar Sharma</h6>
+                    <span class="span">Data Analyst</span>
+                </div>
+            </div>
+
+            <!-- end team memeber -->
+            <div class="team-wrap">
+                <div class="team-member text-center">
+                    <div class="team-img">
+                        <img src="https://codespectsolution.com/static/media/avatar1.291be4e69141f633bcf2.png" alt="">
+                        <div class="overlay">
+                            <div class="team-details text-center">
+                                <p>
+                                   I am a backend Developer,ML enthusiast and have a mastery in Python.
+                                </p>
+                                <div class="socials mt-20">
+                                    <a href="#"><span class="fa fa-facebook"></span></a>
+                                    <a href="#"><span class="fa fa-twitter"></span></a>
+                                    <a href="#"><span class="fa-brands fa-github"></span></a>
+                                    <a href="#"><span class="fa-solid fa-envelope"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="team-title">Subodh Uniyal</h6>
+                    <span class="span">Backend Developer</span>
+                </div>
+            </div>
+
+            <!-- end team memeber -->
+        </div>
+    </div>
+    <audio autoplay loop volume="0.5">
+        <source src="{{ url_for('static', filename='./audio/bgm.mp3') }}" type="audio/mpeg">
+      </audio>
+</body>
+</html>

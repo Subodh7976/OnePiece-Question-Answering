@@ -43,7 +43,7 @@ class DataIngestion:
         '''
         logging.info("Initialized Data Ingestion")
         try:
-            # self.initiate_data_scraping()
+            self.initiate_data_scraping()
             self.initiate_data_cleaning()
             
             logging.info("Data Ingestion Completed")

@@ -1,0 +1,506 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Nunito:wght@200;300;400;600;700&family=Playfair:ital,wght@1,300&family=Poppins:wght@100;200;300&family=Ubuntu:wght@300&display=swap");
+
+@font-face {
+  font-family: "neontubes";
+  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot");
+  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff2")
+      format("woff2"),
+    url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff")
+      format("woff"),
+    url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 5px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--purple);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--black); 
+}
+
+:root {
+  --purple: #b53ce0;
+  --black: #0f0f10;
+  --light-color: #666;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.7);
+  --box-shadow-btn: 0 0.5rem 1.5rem rgba(225, 82, 232, 0.6);
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  color: #fff;
+  padding: 1rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+}
+
+header .logo i {
+  color: var(--purple);
+}
+
+.logo img {
+  margin-top: 2rem;
+  width: 150px;
+  height: 50px;
+}
+
+header .navbar a {
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color: var(--light-color);
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+  color: #fff;
+  background: var(--purple);
+}
+
+header .icons i,
+header .icons a {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  width: 4.5rem;
+  text-align: center;
+  font-size: 1.7rem;
+  color: var(--black);
+  border-radius: 50%;
+  background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover {
+  color: #fff;
+  background: var(--purple);
+  transform: rotate(360deg);
+}
+
+header .icons #menu-bars {
+  display: none;
+}
+
+section {
+  display: flex;
+  margin-top: 10rem;
+}
+
+body {
+  background-color: #040404;
+  background: transparent;
+}
+body::before {
+  content: "";
+  position: fixed;
+  background: #040404 url("../images/wallpaperflare.com_wallpaper.jpg") ;
+  background-position: 15rem 5rem;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
+.search-box {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 100px;
+  background: #2f3640;
+  height: 70px;
+}
+
+.search-box:hover .search-btn {
+  background: #fff;
+  border-radius: 100px;
+}
+
+.search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  color: #fff;
+  transition: 0.5s;
+  font-size: 2rem;
+  width: 540px;
+  padding: 0 6px;
+}
+
+.search-btn {
+  color: var(--purple);
+  width: 80px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  transition: 0.5s;
+  font-size: 2.5rem;
+}
+
+.main {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  font-family: "neontubes";
+  text-align: center;
+  white-space: nowrap;
+}
+.main span {
+  display: block;
+  position: relative;
+  -webkit-transform: translateZ(0) translate3D(0, 0, 0);
+  transform: translateZ(0) translate3D(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity;
+}
+.main .webdev {
+  font-size: 10rem;
+  color: #ffd9e2;
+  text-shadow: 0 0 0 transparent, 0 0 10px var(--purple), 0 0 20px var(--purple),
+    0 0 50px var(--purple), 0 0 100px var(--purple), 0 0 200px var(--purple);
+  -webkit-animation: blink 3s infinite alternate;
+  animation: blink 3s infinite alternate;
+}
+
+.btn {
+    width: 200px;
+  top: 60%;
+  left: 46.5%;
+  position: absolute;
+  cursor: pointer;
+  margin-top: 10rem;
+  padding: 1.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  border-radius: 30px;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: var(--purple);
+  box-shadow: var(--box-shadow-btn);
+}
+
+img {
+  width: 150px;
+  height: 200px;
+}
+
+.chopper {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  animation: bounce 4s infinite;
+}
+
+.robin {
+  position: absolute;
+  top: 55%;
+  left: 5%;
+  animation: bounce-inverted 4s infinite;
+}
+
+.luffy {
+  position: absolute;
+  top: 25%;
+  left: 70%;
+  animation: bounce 4s infinite;
+}
+
+.straw_hat {
+  width: 23rem;
+  position: absolute;
+  top: 15%;
+  left: 32%;
+  transform: rotate(-30deg);
+  z-index: 1000;
+}
+
+.usopp {
+  position: absolute;
+  top: 75%;
+  left: 30%;
+  animation: bounce 4s infinite;
+}
+
+.kaido {
+  position: absolute;
+  top: 65%;
+  left: 65%;
+  animation: bounce-inverted 4s infinite;
+}
+
+.customCheckBoxHolder1 {
+  margin: 5px;
+  display: flex;
+  position: absolute;
+  top: 55%;
+  left: 53%;
+}
+
+.customCheckBoxHolder2 {
+    margin: 5px;
+    display: flex;
+    position: absolute;
+    top: 55%;
+    left: 37%;
+  }
+
+.customCheckBox {
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  padding: 2px 8px;
+  background-color: rgba(0, 0, 0, 0.16);
+  border-radius: 0px;
+  color: rgba(255, 255, 255, 0.7);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 300ms;
+  transition-property: color, background-color, box-shadow;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  box-shadow: var(--purple) 0px 2px 1px 0px inset,
+    var(--purple) 0px 1px 1px 0px;
+  outline: none;
+  justify-content: center;
+  min-width: 55px;
+  width: 200px;
+}
+
+.customCheckBox:hover {
+  background-color: #2c2c2c;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset,
+    rgba(255, 255, 255, 0.17) 0px -1px 1px 0px,
+    rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+}
+
+.customCheckBox .inner {
+  font-size: 3rem;
+  font-weight: 900;
+  pointer-events: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 300ms;
+  transition-property: transform;
+  transform: translateY(0px);
+}
+
+.customCheckBox:hover .inner {
+  transform: translateY(-2px);
+}
+
+/* Multiple Checkboxes can be chained together for a radio input */
+.customCheckBoxWrapper:first-of-type .customCheckBox {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-right: 0px;
+}
+
+.customCheckBoxWrapper:last-of-type .customCheckBox {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-left: 0px;
+}
+
+.customCheckBoxInput {
+  display: none;
+}
+
+.customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox {
+  background-color: var(--purple);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset,
+    rgba(255, 255, 255, 0.17) 0px -1px 1px 0px,
+    rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+}
+
+.customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox .inner {
+  transform: translateY(-2px);
+}
+
+.customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox:hover {
+  background-color: var(--purple);
+  box-shadow: rgba(0, 0, 0, 0.26) 0px -4px 1px 0px inset,
+    rgba(255, 255, 255, 0.17) 0px -1px 1px 0px,
+    rgba(0, 0, 0, 0.15) 0px 3px 6px 2px;
+}
+
+.customCheckBoxWrapper .customCheckBox:hover .inner {
+  transform: translateY(-2px);
+}
+
+
+textarea{
+  /* display: none; */
+  position: absolute;
+  top: 100%;
+ left: 25%;
+ border-radius: 20px;
+ background: var(--black);
+ font-size: 1.7rem;
+ padding: 5rem;
+ color: var(--purple);
+}
+
+text-area.active {
+  display: block;
+}
+
+footer{
+  position: absolute;
+  color: #fff;
+  top: 185%;
+  height: 5rem;
+  width: 100%;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+  background: var(--black);
+  padding: 2rem;
+}
+footer h1{
+  font-size: 1.2rem;
+  float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes bounce-inverted {
+  100%,
+  50% {
+    transform: translateY(0);
+  }
+  100%,
+  0% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@-webkit-keyframes buzz {
+  70% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes buzz {
+  70% {
+    opacity: 0.8;
+  }
+}
+@-webkit-keyframes blink {
+  40% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0.8;
+  }
+  43% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.2;
+  }
+  46% {
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  40% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0.8;
+  }
+  43% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.2;
+  }
+  46% {
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .main {
+    font-size: 150px;
+  }
+
+  .main {
+    font-size: 103px;
+  }
+}

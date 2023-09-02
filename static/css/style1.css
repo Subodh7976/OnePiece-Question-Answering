@@ -1,0 +1,321 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Nunito:wght@200;300;400;600;700&family=Playfair:ital,wght@1,300&family=Poppins:wght@100;200;300&family=Ubuntu:wght@300&display=swap");
+
+:root {
+  --purple: #b53ce0;
+  --black: #0f0f10;
+  --light-color: #666;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.7);
+  --box-shadow-btn: 0 0.5rem 1.5rem rgba(225, 82, 232, 0.6);
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  color: #fff;
+  padding: 1rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+}
+
+header .logo i {
+  color: var(--purple);
+}
+
+.logo img {
+  margin-top: 2rem;
+  width: 150px;
+  height: 50px;
+}
+
+header .navbar a {
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color: var(--light-color);
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+  color: #fff;
+  background: var(--purple);
+}
+
+header .icons i,
+header .icons a {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  width: 4.5rem;
+  text-align: center;
+  font-size: 1.7rem;
+  color: var(--black);
+  border-radius: 50%;
+  background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover {
+  color: #fff;
+  background: var(--purple);
+  transform: rotate(360deg);
+}
+
+header .icons #menu-bars {
+  display: none;
+}
+section #main_page {
+  display: flex;
+  margin-top: 40rem;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: url("https://r4.wallpaperflare.com/wallpaper/849/282/378/anime-one-piece-monkey-d-luffy-wallpaper-b9c0287d01da3deb26d7382f00c1e63d.jpg");
+  background-position: right center;
+  object-fit: cover;
+}
+.card {
+  width: 50rem;
+  height: 50rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 0 50px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 120px;
+}
+.title {
+  width: 100%;
+  transition: transform 0.5s;
+}
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+
+.card:hover .character_zoro {
+  opacity: 1;
+  transform: translate3d(0%, -80%, 100px) scale(1.2);
+}
+
+#train {
+  width: 50%;
+}
+
+.container {
+  display: flex;
+}
+
+label {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.btn{
+    cursor: pointer;
+    margin-top: 10rem;
+    padding: 1.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    border-radius: 30px;
+}
+
+.btn:hover{
+    color: #fff;
+    background-color: var(--purple);
+    box-shadow: var(--box-shadow-btn);
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+select{
+    width: 25%;
+    border-radius: 30px;
+    padding: 1rem;
+    font-size: 2.3rem;
+    margin-top: 3rem;
+}
+
+select:hover{
+    color: #fff;
+    background-color: var(--purple);
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+    overflow-x: hidden;
+  }
+  header {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    overflow-x: hidden;
+  }
+
+  header .icons #menu-bars {
+    display: inline-block;
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  header .navbar a {
+    display: block;
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 2rem;
+    background: #eee;
+  }
+  /* #search-form #search-box{
+        width: 90%;
+        margin: 0rem 1rem;
+    } */
+  section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30rem;
+    margin-bottom: 10rem;
+  }
+  .card {
+    width: 35rem;
+    height: 35rem;
+    padding-top: 60rem;
+  }
+  /* .card_2{
+        margin-top:30rem ;
+    } */
+}
+@media (max-width: 1024px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}

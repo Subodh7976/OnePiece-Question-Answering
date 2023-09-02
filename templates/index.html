@@ -1,4 +1,81 @@
-<a href="/train">Train the model</a>
-<br>
-<a href="/predict">Predict</a>
-<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Question Answer Generator</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='./images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="logo"><img src="https://pnghq.com/wp-content/uploads/one-piece-official-logo-98617.png" alt="One Piece Official Logo"></a>
+
+        <nav class="navbar">
+            <a class="active" href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('review') }}">Review</a>
+        </nav>
+        <div class="icons">
+            <i class="fa fa-bars" id="menu-bars"></i>
+            <i class="fa fa-search" id="search-icon"></i>
+        </div>
+    </header>
+    <section id="main_page">
+    <a href="{{ url_for('train') }}" alt="Mythrill" target="_self">
+        <div class="card" onmouseover="playAudio()" onmouseout="pauseAudio()">
+          <div class="wrapper">
+            <img src="{{ url_for('static', filename='./images/luffy_battle.jpg') }}" class="cover-image" />
+          </div>
+          <img src="{{ url_for('static', filename='./images/train_text.png') }}" class="title" />
+          <img src="{{ url_for('static', filename='./images/luffy_gear_5.png') }}" class="character" />
+          <audio id="hoverAudio">
+            <source src="{{ url_for('static', filename='./audio/luffy_laugh.mp3') }}" type="audio/mpeg">
+        </audio>
+        </div>
+      </a>
+      
+      <a href="{{ url_for('predict') }}" alt="Mythrill" target="_self">
+        <div class="card" onmouseover="playAudio_1()" onmouseout="pauseAudio_1()">
+          <div class="wrapper">
+            <img src="{{ url_for('static', filename='./images/king.jpg') }}" class="cover-image" />
+          </div>
+          <img src="{{ url_for('static', filename='./images/predict_text.png') }}" class="title" />
+          <img  src="{{ url_for('static', filename='./images/zoro.png') }}" class="character character_zoro" />
+          <audio id="hoverAudio_1">
+            <source src="{{ url_for('static', filename='./audio/zoro_voice.mp3') }}" type="audio/mpeg">
+        </audio>
+        </div>
+      </a>
+    </section>
+   
+</body>
+
+
+<script>
+function playAudio() {
+  var audio = document.getElementById("hoverAudio");
+  audio.play();
+}
+
+function pauseAudio() {
+  var audio = document.getElementById("hoverAudio");
+  audio.pause();
+  audio.currentTime = 0; // Reset audio to the beginning
+}
+
+function playAudio_1() {
+  var audio_1 = document.getElementById("hoverAudio_1");
+  audio_1.play();
+}
+
+function pauseAudio_1() {
+  var audio_1 = document.getElementById("hoverAudio_1");
+  audio_1.pause();
+  audio_1.currentTime = 0; // Reset audio to the beginning
+}
+
+
+</script>
+</html>

@@ -42,6 +42,9 @@ def train():
                                    TrainPipelineConfig().generative_model_save_path
                                ))
     else:
+        if check_model_exist(TrainPipelineConfig().model_save_path) \
+        and check_model_exist(TrainPipelineConfig().generative_model_save_path):
+            return render_template('predict.html', result={"message": "Model already trained!!!"})
         start_time = time.time()
         gen_model_bool = bool(request.form.get('model'))
         scrape_bool = bool(request.form.get('scrape'))
@@ -60,8 +63,8 @@ def train():
         global prediction_pipeline
         prediction_pipeline = PredictPipeline()
 
-        return render_template('train.html', time_taken=total_time, 
-                               completed=True)
+        return render_template('predict.html', result={"message": "Model Trained!!!"}, 
+                               time_taken=total_time)
 
 
 @app.route('/predict', methods=['GET', 'POST'])
@@ -78,14 +81,17 @@ def predict():
         if prediction_pipeline is None:
             prediction_pipeline = PredictPipeline()
         start_time = time.time()
-        model = request.form.get('model')
         query = request.form.get('query')
-        generative = False
-        if model == 'generative':
-            generative = True
-            result = prediction_pipeline.predict_generative(query=query)
+        if query is None or query == '':
+            result = {'Error': "Enter a query"}
         else:
-            result = prediction_pipeline.predict(query=query)
+            retriever = request.form.get('cCB1') is not None
+            generative = request.form.get('cCB2') is not None 
+            result = {}
+            if generative:
+                result['gen'] = prediction_pipeline.predict_generative(query=query)
+            if retriever:
+                result['ret'] = prediction_pipeline.predict(query=query)
 
         total_time = time.time() - start_time
 
@@ -97,7 +103,21 @@ def predict():
                                ), 
                                trained_gen=check_model_exist(
                                    TrainPipelineConfig().generative_model_save_path
-                               ), generative=generative)
+                               ))
+
+
+@app.route('/about_us', methods=['GET'])
+def about():
+    return render_template('about_us.html')
+
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
+
+@app.route('/review', methods=['GET'])
+def review():
+    return render_template('our_crew.html')
+    
 
 
 if __name__ == '__main__':

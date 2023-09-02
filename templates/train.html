@@ -1,33 +1,59 @@
-{% if completed == True %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Piece Question Answer Generator</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='./images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style1.css') }}" />
+  </head>
+  <body>
+    <header>
+      <a href="{{ url_for('index') }}" class="logo"
+        ><img
+          src="https://pnghq.com/wp-content/uploads/one-piece-official-logo-98617.png"
+          alt="One Piece Official Logo"
+      /></a>
 
-    <p>Training Completed! Total time takedn <b>{{ time_taken }}</b></p>
-
-{% else %}
-
-    {% if trained_stand == True %}
-        <p> The standard model is already trained </p>
-    {% else %}
-        <p> The standard model is not trained </p>
-    {% endif %}\
-
-    {% if trained_gen == True %}
-        <p>The generative model is already trained </p>
-    {% else %}
-        <p>The generative model is not trained </p>
-    {% endif %}
-
-    <form action="{{ url_for('train') }}" method="post">
-        <select name="model" placeholder="Train the generative model (No will train standard model)">
-            <option value="True">Yes</option>
-            <option value="False">No</option>
-        </select>
-
-        <select name="scrape" placeholder="Scrape the data or not">
-            <option value="True">Yes</option>
-            <option value="False">No</option>
-        </select>
-
-        <input type="submit" value="Start Training" required />
-    </form>
-
-{% endif %}
+      <nav class="navbar">
+        <a class="active" href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+        <a href="#{{ url_for('review') }}">Review</a>
+      </nav>
+      <div class="icons">
+        <i class="fa fa-bars" id="menu-bars"></i>
+        <i class="fa fa-search" id="search-icon"></i>
+      </div>
+    </header>
+    <section id="train">
+      <form action="{{ url_for('train') }}" method="post" id="form">
+        <div class="container">
+          <div class="content">
+            <label for="model">Train the generative model</label>
+            <select name="model">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+          <div class="content">
+            <label for="scrape"> Scrape the data or not</label>
+            <select name="scrape">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+        </div>
+        <input
+          type="submit"
+          value="Start Training"
+          required
+          class="offset btn"
+        />
+      </form>
+    </section>
+     <audio autoplay loop volume="0.5">
+      <source src="{{ url_for('static', filename='./audio/bgm.mp3') }}" type="audio/mpeg">
+    </audio>
+  </body>
+</html>

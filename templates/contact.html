@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Question Answer Generator</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='./images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/contact.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="logo"><img src="https://pnghq.com/wp-content/uploads/one-piece-official-logo-98617.png" alt="One Piece Official Logo"></a>
+
+        <nav class="navbar">
+            <a  href="{{ url_for('index') }}">Home</a>
+            <a  href="{{ url_for('about') }}">About</a>
+            <a class="active" href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('review') }}">Review</a>
+        </nav>
+        <div class="icons">
+            <i class="fa fa-bars" id="menu-bars"></i>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="contactInfo">
+                <div>
+                    <h2>Contact Info</h2>
+                    <ul class="info">
+                        <li>
+                            <span><img src="https://i.ibb.co/cbnfrDF/location.png" /></span>
+                            <span>
+                                Valavoor, Kottayam<br>
+                                Kerala, India<br>
+                                638468
+                            </span>
+                        </li>
+                        <li>
+                            <span><img src="https://i.ibb.co/rbbwDkP/mail.png"/></span>
+                            <span>gauravyadav0303@gmail.com</span>
+                        </li>
+                        <li>
+                            <span><img src="https://i.ibb.co/DGGjsW7/call.png"/></span>
+                            <span>+91-7380970051</span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="sci">
+                    <li><a href=""><img src="https://i.ibb.co/vxjnyw0/1.png"/></a></li>
+                    <li><a href=""><img src="https://i.ibb.co/xsXK3zW/2.png"/></a></li>
+                    <li><a href=""><img src="https://i.ibb.co/5jFR49X/3.png"/></a></li>
+                    <li><a href=""><img src="https://i.ibb.co/1Msgr4S/4.png"/></a></li>
+                    <li><a href=""><img src="https://i.ibb.co/GtnC2C8/5.png"/></a></li>
+                </ul>
+
+            </div>
+            <div class="contactForm">
+                <h2>Send a Message</h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" required>
+                        <span>First Name</span>
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="text" required>
+                        <span>Last Name</span>
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="email" required>
+                        <span>Email Address</span>
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="text" required>
+                        <span>Mobile Number</span>
+                    </div>
+                    <div class="inputBox w100">
+                        <textarea required></textarea>
+                        <span>Write Your Massage Here...</span>
+                    </div>
+                    <div class="inputBox w100">
+                        <input type="submit" value="Send">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <audio autoplay loop volume="0.5">
+        <source src="{{ url_for('static', filename='./audio/bgm.mp3') }}" type="audio/mpeg">
+      </audio>
+</body>
+</html>
