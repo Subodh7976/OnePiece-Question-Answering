@@ -3,6 +3,7 @@ import sys
 from src.pipeline.training import TrainPipeline
 from src.logger import logging
 
+
 SCRAPE_ARG = 'scrape'
 GEN_ARG = 'gen'
 
